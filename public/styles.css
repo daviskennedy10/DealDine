@@ -1,0 +1,158 @@
+
+:root{
+  --bg:#fdebdc;
+  --bg2:#fde2cc;
+  --white:#fff;
+  --shadow:0 10px 20px rgba(0,0,0,.08);
+  --accent:#ff8a00;
+  --accent2:#ffb366;
+  --text:#1d1b16;
+  --muted:#7a6f62;
+  --chip:#ffe8d1;
+  --chip-active:#ff9400;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Inter',system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color:var(--text);
+}
+
+.app{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap:24px;
+  padding:24px;
+}
+
+.sidebar{
+  background: rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+  box-shadow: var(--shadow);
+  padding:20px;
+  align-self: start;
+}
+
+.sidebar-inner{position:sticky; top:20px}
+.smallmuted{font-size:14px; color:var(--muted); margin:0 0 6px}
+.muted{font-size:14px; color:var(--muted); margin:0 0 16px}
+
+.chips{display:flex; flex-wrap:wrap; gap:6px; max-height: 300px; overflow-y: auto}
+.chip{
+  border:none;
+  background: var(--chip);
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+  color:#8a6a48;
+  transition: all .15s ease;
+  font-size: 13px;
+  margin: 2px;
+}
+.chip:hover{transform: translateY(-1px)}
+.chip.active{
+  background: var(--accent);
+  color:#fff;
+  box-shadow: var(--shadow);
+}
+
+.main{}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.brand{display:flex; gap:14px; align-items:center}
+.logo{
+  width:44px; height:44px;
+  display:grid; place-items:center;
+  font-size:22px;
+  background:#fff; border-radius:12px; box-shadow:var(--shadow);
+}
+.title{font-size:28px; font-weight:800; line-height:1; margin:0; color: var(--accent)}
+.subtitle{margin:4px 0 0; color:var(--muted)}
+
+.sort{display:flex; gap:10px}
+.pill{
+  border:1px solid rgba(0,0,0,.06);
+  background: #fff;
+  padding:10px 16px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:700;
+}
+.pill.active{
+  background: var(--accent);
+  color:#fff;
+  border-color: transparent;
+}
+
+.section h2{margin:10px 0 14px; font-size:28px}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap:20px;
+}
+
+.card{
+  background: rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.8);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-color: var(--accent);
+}
+
+.card:hover .card-img .img{
+  transform: scale(1.1);
+}
+
+.card-img{width:100%; height:240px; overflow:hidden; background:#f4f1ec}
+.card-img .img{width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)}
+
+.card-body{padding:16px}
+.meta{display:flex; align-items:center; gap:8px; color:var(--muted); font-weight:600}
+.chain-logo{filter:grayscale(.1); border-radius:4px}
+.card-title{margin:10px 0 14px; font-size:18px; font-weight: 700; line-height: 1.3}
+
+.badge-row{margin-bottom:10px}
+.badge{
+  display:inline-block;
+  padding:8px 12px;
+  background: var(--accent);
+  color: white;
+  font-weight:800;
+  border-radius:8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expiry{display:flex; align-items:center; gap:8px; color:var(--muted); font-weight:500; font-size: 13px}
+.cal{}
+
+
+
+@media (max-width: 920px) {
+  .app{grid-template-columns:1fr}
+  .sidebar{position:static}
+}
